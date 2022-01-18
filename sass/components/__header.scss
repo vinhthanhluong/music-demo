@@ -18,6 +18,9 @@
         //     padding: 8px 0;
         // }
     }
+    @include max-media($bk-d-1200){
+        display: none;
+    }
 }
 
 .header-bottom {

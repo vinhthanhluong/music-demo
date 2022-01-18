@@ -10,13 +10,22 @@
 
     .col {
         padding: 15px;
+        @include max-media($bk-d-1200){
+            padding: 0;
+        }
 
         &.txt-l {
             width: calc(100% / 12 * 9);
+            width: 800px;
+            max-width: 100%;    
+            margin:  0 auto;
         }
 
         &.txt-r {
             width: calc(100% / 12 * 3);
+            @include max-media($bk-d-1200){
+                display: none;
+            }
         }
 
         &s {
@@ -24,6 +33,9 @@
             flex-wrap: wrap;
             margin: -15px;
             width: 100%;
+            @include max-media($bk-d-1200){
+                margin: 0;
+            }
         }
     }
 
@@ -33,12 +45,20 @@
         overflow: hidden;
         padding: 40px;
         box-shadow: 0px 0px 30px rgba($color: $b-cl, $alpha: .05);
-
+        @include max-media($bk-d-1900){
+            padding: 30px;
+        }
+        @include max-media($bk-576){
+            padding: 20px;
+        }
     }
 }
 
 
 .home-head {
+    @include max-media($bk-d-768){
+        display: none;
+    }
     .columns {
         align-items: center;
         justify-content: space-between;
@@ -95,31 +115,71 @@
 
 .my-releases {
     margin-top: 30px;
+    @include max-media($bk-d-1200){
+        margin-top: 20px;
+    }
+    @include max-media($bk-d-768){
+        margin-top: 0;
+    }
 
     .column {
         &.ig {
             width: calc(100% / 9 * 3);
+            @include max-media($bk-d-768){
+                width: 100%;
+            }
         }
-
         &.lst {
             width: calc(100% / 9 * 6);
+            @include max-media($bk-d-768){
+                width: 100%;
+            }
         }
     }
+    
+   
 
     .releases-title {
         @include fz-30;
         font-weight: 600;
         line-height: 1.2;
         margin-bottom: 15px;
-
     }
 
     .m-img {
         border-radius: 20px;
         overflow: hidden;
+        @include max-media($bk-576){
+            border-radius: 100%;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+        }
+
+        &.is-playing{
+            @include max-media($bk-576){
+                animation: rotate 10s infinite linear;
+            }
+        }
 
         img {
             height: 340px;
+            @include max-media($bk-d-1900){
+                height: 250px;
+            }
+            @include max-media($bk-d-992){
+                height: 230px;
+            }
+            @include max-media($bk-576){
+                height: 100%;
+            }
+        }
+    }
+
+    .mp3-text{
+        @include max-media($bk-576){
+            text-align: center;
+            margin-top: 10px;
         }
     }
 
@@ -128,10 +188,26 @@
         max-height: 323px;
         @include custom-vertical-scrollbar(3px, transparent, transparent);
         padding-right: 20px;
+        @include max-media($bk-d-1900){
+            max-height: 250px
+        }
+        @include max-media($bk-d-992){
+            max-height: 230px;
+        }
+        @include max-media($bk-d-768){
+            margin-top: 10px;
+            max-height: 216px;
+        }
+        @include max-media($bk-576){
+            max-height: 200px;
+            padding-right: 0;
+        }
 
         &.show {
             @include custom-vertical-scrollbar(3px, $main-cl-3, transparent);
-
+            @include max-media($bk-576){
+                @include custom-vertical-scrollbar(0)
+            }
         }
     }
 
@@ -143,6 +219,12 @@
 
         &:not(:first-child) {
             margin-top: 25px;
+            @include max-media($bk-d-1900){
+                margin-top: 20px;
+            }
+            @include max-media($bk-576){
+                margin-top: 15px;
+            }
         }
 
         &.active {
@@ -219,10 +301,19 @@
         @include flex-mid;
         cursor: pointer;
         opacity: 0.5;
+        @include max-media($bk-d-992){
+            margin-right: 20px;
+        }
+        @include max-media($bk-576){
+            margin-right: 0;
+        }
     }
 
     .total-timer {
         opacity: 0.5;
+        @include max-media($bk-576){
+            display: none;
+        }
     }
 }
 
@@ -253,6 +344,22 @@
     right: 35px;
     z-index: 999;
     overflow: hidden;
+    @include max-media($bk-d-1200){
+        padding: 30px 30px 25px;
+    }
+    @include max-media($bk-d-992){
+        padding: 30px 25px 25px;
+        left: 15px;
+        right: 15px;
+    }
+    @include max-media($bk-576){
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+        overflow: visible;
+
+    }
 
     .columns {
         align-items: center;
@@ -262,6 +369,29 @@
     .column {
         &.man {
             @include pos-mid;
+            @include max-media($bk-d-992){
+                position: static;
+                transform: none;
+            }
+            @include max-media($bk-576){
+                width: 90%;
+                width: 100%;
+            }
+        }
+
+        &.mlt{
+            @include max-media($bk-576){
+                display: none;
+            }
+        }
+        &.mrt{
+            @include max-media($bk-576){
+                width: 10%;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
         }
     }
 
@@ -273,7 +403,7 @@
         top: 0;
         left: 0;
         right: 0;
-        z-index: 10;
+        // z-index: 10;
 
         .f-range {
             width: 100%;
@@ -282,7 +412,7 @@
             height: 5px;
             cursor: pointer;
             position: absolute;
-
+            outline: none;
             &:hover {
                 opacity: 1;
             }
@@ -358,6 +488,19 @@
         display: flex;
         align-items: center;
         padding-left: 100px;
+        @include max-media($bk-d-1900){
+            padding-left: 30px;
+        }
+        @include max-media($bk-d-1200){
+            position: absolute;
+          top: 0;
+            right: 0;
+            padding-left: 0;
+            // transform: translate(0 , -100%);
+        }
+        @include max-media($bk-d-992){
+            top: -10px;
+        }
     }
 
     .duration,
@@ -387,6 +530,9 @@
 
     .mp3-text {
         padding-left: 20px;
+        @include max-media($bk-d-1200){
+            padding-left: 10px;
+        }
     }
 
     .mp3-name-song {
@@ -410,6 +556,12 @@
         justify-content: center;
         width: 100%;
         gap: 0 35px;
+        @include max-media($bk-d-1900){
+            gap: 0 15px;
+        }
+        @include max-media($bk-d-992){
+            gap: 5px;
+        }
 
         .play-prev,
         .play-next,
@@ -456,21 +608,47 @@
         align-items: center;
         gap: 30px;
         color: $g-cl;
+        @include max-media($bk-d-1200){
+            gap: 15px;
+        }
     }
 
     .volumes {
         display: flex;
         align-items: center;
+        position: relative;
+        &.active{
+            .vol-range{
+                @include visible;
+            }
+        }
 
         .icon-vol {
             width: 20px;
             height: 20px;
             margin-right: 5px;
+            @include max-media($bk-576){
+                margin-right: 0;
+                @include flex-mid;
+            }
         }
 
         .vol-range {
             transform: translateY(-2px);
             max-width: 100px;
+            @include max-media($bk-d-1200){
+                max-width: 80px;
+            }
+            @include max-media($bk-576){
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(7px , -15px) rotate(-90deg);
+                transform-origin: left;
+                width: 50px;
+                transition: all .3s ease;
+                @include hidden;
+            }
         }
 
         .f-volume {
@@ -480,7 +658,7 @@
             height: 4px;
             border-radius: 100px;
             cursor: pointer;
-
+            outline: none;
             //track
             &::-webkit-slider-runnable-track {
                 -webkit-appearance: none;
@@ -528,7 +706,9 @@
     .like-icon {
         cursor: pointer;
         @include fz-16;
-
+        @include max-media($bk-576){
+            display: none;
+        }
         &.hidden {
             .fa-heart {
                 display: none;
@@ -553,6 +733,9 @@
         cursor: pointer;
         font-size: 10px;
         transition: all .3s ease;
+        @include max-media($bk-576){
+            display: none;
+        }
 
         &:hover {
             color: $main-cl-3;

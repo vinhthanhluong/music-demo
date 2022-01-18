@@ -91,6 +91,7 @@ export default function MusicModule() {
             playBtn.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
             timer = setInterval(displayTimer, 500);
             songImg.parentElement.classList.add('is-playing');
+            songImgs.parentElement.classList.add('is-playing');
 
         } else {
             song.pause();
@@ -98,8 +99,10 @@ export default function MusicModule() {
             playBtn.innerHTML = ' <i class="fa fa-play" aria-hidden="true"></i>';
             clearInterval(timer);
             songImg.parentElement.classList.remove('is-playing');
+            songImgs.parentElement.classList.remove('is-playing');
         }
         $('.my-list .item').removeClass('active').siblings().eq(indexSong).addClass('active');
+
     }
 
     //keybord play & pause
@@ -141,6 +144,10 @@ export default function MusicModule() {
 
         isPlaying = true;
         playPause();
+        // $('.my-list .item.active').scrollIntoView();
+
+        // console.log($('.my-list .item.active').scrollIntoView())
+        scrollActiveSong();
     }
 
     // time của song
@@ -223,10 +230,10 @@ export default function MusicModule() {
     });
 
     $.each(music, function (i, f) {
-       
+
         const itemSong =
             `
-            <div class="item ${f.id === 1 ? 'active' : '' }" data-id='${f.id}'>
+            <div class="item ${f.id === 1 ? 'active' : ''}" data-id='${f.id}'>
                 <div class="itm-lt">
                     <div class="stt">
                         <p class="text-stt"> ${f.id} </p>
@@ -276,9 +283,6 @@ export default function MusicModule() {
 
     });
 
-    //active item đầu tiên 
-    $('.list .item').eq(0).addClass('active');
-
     // like icon
     $('.like-icon').on('click', function () {
         if ($(this).hasClass('show')) {
@@ -294,15 +298,46 @@ export default function MusicModule() {
     //volume
     const volume = document.getElementById("volume");
 
-    volume.addEventListener('input', handVolume)
+    volume.addEventListener('input', handVolume);
+    volume.addEventListener('input', volumeSong);
 
     function handVolume() {
         let valPercent = (volume.value / volume.max) * 100;
         volume.style.background = `linear-gradient(to right, #ab96d6 ${valPercent}%, #d5d5d5 ${valPercent}%)`;
     }
     handVolume();
-
-    function scrollActiveSong(){
-        // song.scrollIntoView()
+    function volumeSong() {
+        const valSong = volume.value / 10;
+        const volSong = song.volume = valSong;
+        return volSong;
     }
+
+    // cuộn item active hiện lên
+    function scrollActiveSong() {
+        setTimeout(() => {
+            $('.item.active')[0].scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+            })
+        }, 200);
+    }
+
+    //rps
+    const width = $(window).width();
+    if (width <= 576) {
+        $('.mp3-text').appendTo('.column.ig');
+
+        const activeVol = $('.volumes');
+        $(document).mouseover(function (e) { 
+            if (!activeVol.is(e.target) && activeVol.has(e.target).length === 0) {
+                activeVol.removeClass('active');
+            }
+        });
+
+        $('.icon-vol').on('click', function () {
+            activeVol.toggleClass('active');
+        });
+    }
+
+
 }
