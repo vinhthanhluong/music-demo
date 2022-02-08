@@ -18,7 +18,7 @@
         &.txt-l {
             width: calc(100% / 12 * 9);
 
-            @include max-media($bk-d-1900) {
+            @include max-media($bk-d-1440) {
                 width: 800px;
                 max-width: 100%;
                 margin: 0 auto;
@@ -52,7 +52,7 @@
         padding: 40px;
         box-shadow: 0px 0px 30px rgba($color: $b-cl, $alpha: .05);
 
-        @include max-media($bk-d-1900) {
+        @include max-media($bk-d-1440) {
             padding: 30px;
         }
 
@@ -135,7 +135,7 @@
 
     .column {
         &.ig {
-            width: calc(100% / 9 * 3);
+            width: calc(100% / 9 * 3.4);
 
             @include max-media($bk-d-768) {
                 width: 100%;
@@ -143,7 +143,7 @@
         }
 
         &.lst {
-            width: calc(100% / 9 * 6);
+            width: calc(100% / 9 * 5.6);
 
             @include max-media($bk-d-768) {
                 width: 100%;
@@ -180,7 +180,7 @@
         img {
             height: 340px;
 
-            @include max-media($bk-d-1900) {
+            @include max-media($bk-d-1440) {
                 height: 250px;
             }
 
@@ -207,7 +207,7 @@
         @include custom-vertical-scrollbar(3px, transparent, transparent);
         padding-right: 20px;
 
-        @include max-media($bk-d-1900) {
+        @include max-media($bk-d-1440) {
             max-height: 250px
         }
 
@@ -243,7 +243,7 @@
         &:not(:first-child) {
             margin-top: 25px;
 
-            @include max-media($bk-d-1900) {
+            @include max-media($bk-d-1440) {
                 margin-top: 20px;
             }
 
@@ -525,7 +525,7 @@
         align-items: center;
         padding-left: 100px;
 
-        @include max-media($bk-d-1900) {
+        @include max-media($bk-d-1440) {
             padding-left: 30px;
         }
 
@@ -597,7 +597,7 @@
         width: 100%;
         gap: 0 35px;
 
-        @include max-media($bk-d-1900) {
+        @include max-media($bk-d-1440) {
             gap: 0 15px;
         }
 

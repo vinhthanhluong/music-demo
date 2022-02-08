@@ -24,6 +24,11 @@
 }
 
 .header-bottom {
+    .container{
+        @include max-media($bk-d-1440){
+            padding: 0;
+        }
+    }
 
     &-inner {
         // padding: 0px 15px;

@@ -774,6 +774,11 @@ sup {
   }
 }
 
+@media screen and (max-width: 1439px) {
+  .header-bottom .container {
+    padding: 0;
+  }
+}
 .header-bottom-inner {
   padding: 0;
   justify-content: space-between;
@@ -3136,7 +3141,7 @@ html .mfp-wrap {
 .home-mains .col.txt-l {
   width: calc(100% / 12 * 9);
 }
-@media screen and (max-width: 1899px) {
+@media screen and (max-width: 1439px) {
   .home-mains .col.txt-l {
     width: 800px;
     max-width: 100%;
@@ -3169,7 +3174,7 @@ html .mfp-wrap {
   padding: 40px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
 }
-@media screen and (max-width: 1899px) {
+@media screen and (max-width: 1439px) {
   .home-mains .home-wrap-box {
     padding: 30px;
   }
@@ -3242,7 +3247,7 @@ html .mfp-wrap {
   }
 }
 .my-releases .column.ig {
-  width: calc(100% / 9 * 3);
+  width: calc(100% / 9 * 3.4);
 }
 @media screen and (max-width: 767px) {
   .my-releases .column.ig {
@@ -3250,7 +3255,7 @@ html .mfp-wrap {
   }
 }
 .my-releases .column.lst {
-  width: calc(100% / 9 * 6);
+  width: calc(100% / 9 * 5.6);
 }
 @media screen and (max-width: 767px) {
   .my-releases .column.lst {
@@ -3293,7 +3298,7 @@ html .mfp-wrap {
 .my-releases .m-img img {
   height: 340px;
 }
-@media screen and (max-width: 1899px) {
+@media screen and (max-width: 1439px) {
   .my-releases .m-img img {
     height: 250px;
   }
@@ -3329,7 +3334,7 @@ html .mfp-wrap {
 .my-releases .my-list::-webkit-scrollbar-track {
   background: transparent;
 }
-@media screen and (max-width: 1899px) {
+@media screen and (max-width: 1439px) {
   .my-releases .my-list {
     max-height: 250px;
   }
@@ -3382,7 +3387,7 @@ html .mfp-wrap {
 .my-releases .item:not(:first-child) {
   margin-top: 25px;
 }
-@media screen and (max-width: 1899px) {
+@media screen and (max-width: 1439px) {
   .my-releases .item:not(:first-child) {
     margin-top: 20px;
   }
@@ -3647,7 +3652,7 @@ html .mfp-wrap {
   align-items: center;
   padding-left: 100px;
 }
-@media screen and (max-width: 1899px) {
+@media screen and (max-width: 1439px) {
   .home-footer .mp3-timer {
     padding-left: 30px;
   }
@@ -3726,7 +3731,7 @@ html .mfp-wrap {
   width: 100%;
   gap: 0 35px;
 }
-@media screen and (max-width: 1899px) {
+@media screen and (max-width: 1439px) {
   .home-footer .controls {
     gap: 0 15px;
   }
