@@ -3135,9 +3135,13 @@ html .mfp-wrap {
 }
 .home-mains .col.txt-l {
   width: calc(100% / 12 * 9);
-  width: 800px;
-  max-width: 100%;
-  margin: 0 auto;
+}
+@media screen and (max-width: 1899px) {
+  .home-mains .col.txt-l {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }
 .home-mains .col.txt-r {
   width: calc(100% / 12 * 3);
